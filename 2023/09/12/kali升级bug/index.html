@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>kali升级bug | 乌托邦</title><meta name="author" content="孤寐"><meta name="copyright" content="孤寐"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Parallels虚拟机kali内核升级bug情况有点小菜又喜欢折腾和尝鲜，看到kali发布了新版本，就想着升级一下。 很常规的操作，疏忽没有做快照。升级到一半出现bug，意思到出bug的瞬间，第一时间光速做了快照。 当时情况：所有命令可正常使用，系统锁定之后无法解锁，重启之后无法加载系统。 使用 apt update &amp;&amp; apt -f full-upgrade最终报错 重新启动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kali升级bug">
+<meta property="og:url" content="http://example.com/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/index.html">
+<meta property="og:site_name" content="乌托邦">
+<meta property="og:description" content="Parallels虚拟机kali内核升级bug情况有点小菜又喜欢折腾和尝鲜，看到kali发布了新版本，就想着升级一下。 很常规的操作，疏忽没有做快照。升级到一半出现bug，意思到出bug的瞬间，第一时间光速做了快照。 当时情况：所有命令可正常使用，系统锁定之后无法解锁，重启之后无法加载系统。 使用 apt update &amp;&amp; apt -f full-upgrade最终报错 重新启动">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png">
+<meta property="article:published_time" content="2023-09-12T04:57:57.000Z">
+<meta property="article:modified_time" content="2023-09-14T09:48:36.457Z">
+<meta property="article:author" content="孤寐">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png"><link rel="shortcut icon" href="/img/title.png"><link rel="canonical" href="http://example.com/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'kali升级bug',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-14 17:48:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/title.pic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">乌托邦</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">kali升级bug</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-09-12T04:57:57.000Z" title="发表于 2023-09-12 12:57:57">2023-09-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-14T09:48:36.457Z" title="更新于 2023-09-14 17:48:36">2023-09-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="kali升级bug"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Parallels虚拟机kali内核升级bug"><a href="#Parallels虚拟机kali内核升级bug" class="headerlink" title="Parallels虚拟机kali内核升级bug"></a>Parallels虚拟机kali内核升级bug</h2><h3 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h3><p>有点小菜又喜欢折腾和尝鲜，看到kali发布了新版本，就想着升级一下。</p>
+<p>很常规的操作，疏忽没有做快照。升级到一半出现bug，意思到出bug的瞬间，第一时间光速做了快照。</p>
+<p>当时情况：所有命令可正常使用，系统锁定之后无法解锁，重启之后无法加载系统。</p>
+<p>使用 <strong>apt update &amp;&amp; apt -f full-upgrade</strong>最终报错</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141630373.png"><br>重新启动后报错，无法进入系统</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141631588.png"></p>
+<p>执行**apt update ** 显示正常</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141631906.png"></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><h4 id="询问gpt"><a href="#询问gpt" class="headerlink" title="询问gpt"></a>询问gpt</h4><p>gpt是是一个很方便，又很可怕的工具。直接将报错丢给他，回答的很好也很全面</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141644041.png"></p>
+<p>但是很可惜的是并没有解决问题，依旧无法成功更新。在这里卡了很久</p>
+<h4 id="询问群友"><a href="#询问群友" class="headerlink" title="询问群友"></a>询问群友</h4><p><strong>在此特别感谢一下p神的知识星球，微信群的氛围特别好。有很多人帮我分析，解决问题，让我找回了初心和正确的解决方案</strong></p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141649043.png"><br><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141650105.png"></p>
+<p>有很多人给了很多建议，我把其中的知识点整理了一下</p>
+<h5 id="列出所有已经安装的内核"><a href="#列出所有已经安装的内核" class="headerlink" title="列出所有已经安装的内核"></a>列出所有已经安装的内核</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg --list | grep linux-image</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141654995.png"></p>
+<p>第一列的ii，if，iu代表不同的意义</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">ii：已安装被配置</span></span><br><span class="line"><span class="string">if：已安装但处于不一致的状态。可能是由于中断的安装或配置问题引起的。</span></span><br><span class="line"><span class="string">iu：已安装，有可用的升级</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="查看内核版本"><a href="#查看内核版本" class="headerlink" title="查看内核版本"></a>查看内核版本</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+
+<h5 id="删除某个内核版本"><a href="#删除某个内核版本" class="headerlink" title="删除某个内核版本"></a>删除某个内核版本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">apt remove linux-image-5.18.0-kali5-arm64</span></span><br><span class="line">dpkg --remove --force-remove-reinstreq linux-headers-6.4.0-kali3-arm64</span><br><span class="line">dpkg --remove --force-remove-reinstreq linux-image-6.4.0-kali3-arm64</span><br></pre></td></tr></table></figure>
+<p>在删除的过程中可能会遇到报错提示，比如文件夹非空。去删除指定文件夹即可</p>
+<p>ex：</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/image-20230912125907400.png"></p>
+<p>到这里，系统已经可以正常使用，不存在异常状态。</p>
+<h4 id="系统可正常使用"><a href="#系统可正常使用" class="headerlink" title="系统可正常使用"></a>系统可正常使用</h4><p>到这里，系统已经可以正常使用，不存在异常状态。小小总结：无论什么时候，进行敏感操作前一定要备份备份备份备份！！！！</p>
+<h4 id="自我分析"><a href="#自我分析" class="headerlink" title="自我分析"></a>自我分析</h4><p>我陷入了深深的不解与疑惑：大版本的升级，无论是官方还是博客给出的命令都是一致的，到底是哪里出了问题呢？排除网络原因，我决定仔细去看整个升级流程，不放过任何信息。</p>
+<h5 id="迅速定位首次问题出发点"><a href="#迅速定位首次问题出发点" class="headerlink" title="迅速定位首次问题出发点"></a>迅速定位首次问题出发点</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">正在设置 linux-headers-6.4.0-kali3-arm64 (6.4.11-1kali1) ...</span><br><span class="line">/etc/kernel/header_postinst.d/dkms:</span><br><span class="line">dkms: running auto installation service for kernel 6.4.0-kali3-arm64.</span><br><span class="line">The kernel is be built without module signing facility, modules won&#x27;t be signed</span><br><span class="line"></span><br><span class="line">Building module:</span><br><span class="line">Cleaning build area...</span><br><span class="line">make -j3 KERNELRELEASE=6.4.0-kali3-arm64 -f Makefile.kmods KSRC=/lib/modules/6.4.0-kali3-arm64/build KVER=6.4.0-kali3-arm64....(bad exit status: 2)</span><br><span class="line">Error! Bad return status for module build on kernel: 6.4.0-kali3-arm64 (aarch64)</span><br><span class="line">Consult /var/lib/dkms/parallels-tools/18.1.0.53311/build/make.log for more information.</span><br><span class="line">dkms autoinstall on 6.4.0-kali3-arm64/aarch64 failed for parallels-tools(10)</span><br><span class="line">Error! One or more modules failed to install during autoinstall.</span><br><span class="line">Refer to previous errors for more information.</span><br><span class="line">dkms: autoinstall for kernel: 6.4.0-kali3-arm64 failed!</span><br><span class="line">run-parts: /etc/kernel/header_postinst.d/dkms exited with return code 11</span><br><span class="line">Failed to process /etc/kernel/header_postinst.d at /var/lib/dpkg/info/linux-headers-6.4.0-kali3-arm64.postinst line 11.</span><br><span class="line">dpkg: 处理软件包 linux-headers-6.4.0-kali3-arm64 (--configure)时出错：</span><br><span class="line"> 已安装 linux-headers-6.4.0-kali3-arm64 软件包 post-installation 脚本 子进程返回错误状态 1</span><br><span class="line">正在设置 libpfm4:arm64 (4.13.0+git15-gefd10fb-2) ...</span><br><span class="line">正在设置 python3-pyparsing (3.1.1-1) ...</span><br><span class="line">正在设置 libfreetype6:arm64 (2.13.2+dfsg-1) ...</span><br><span class="line">正在设置 libspa-0.2-modules:arm64 (0.3.79-1)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141712337.png"></p>
+<p>可以看到好像和parallels-tools有关。查看后续报错，均与parallels-tools有关。</p>
+<h5 id="卸载parallels-tools，解决问题"><a href="#卸载parallels-tools，解决问题" class="headerlink" title="卸载parallels-tools，解决问题"></a>卸载parallels-tools，解决问题</h5><p>灵机一动，如果将parallels-tools卸载掉再升级会不会好呢。验证之后卸载parallels-tools后，可成功升级无报错</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141717533.png"></p>
+<h5 id="卸载parallels-tools方法"><a href="#卸载parallels-tools方法" class="headerlink" title="卸载parallels-tools方法"></a>卸载parallels-tools方法</h5><p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141719564.png"></p>
+<h3 id="彻底升级"><a href="#彻底升级" class="headerlink" title="彻底升级"></a>彻底升级</h3><p>成功执行 <strong>apt update &amp;&amp; apt full-upgrade</strong>后，使用 <strong>uname -a</strong> 查看内核版本，发现内核版本依旧未升级，心生奇怪。</p>
+<h4 id="修改grub配置"><a href="#修改grub配置" class="headerlink" title="修改grub配置"></a>修改grub配置</h4><p>需要编辑 &#x2F;etc&#x2F;default&#x2F;grub 文件，此文件是 GRUB 引导加载程序的配置文件，用于设置 GRUB 的各种参数和选项。将GRUB_DEFAULT属性设置为saved</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRUB_DEFAULT=saved</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141739214.png"></p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141739797.png"></p>
+<p>然后再设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-set-default 0</span><br></pre></td></tr></table></figure>
+
+<p>reboot开机启动，就可以看到内核升级完成</p>
+<p><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/202309141741875.png"></p>
+<h3 id="总结与思考"><a href="#总结与思考" class="headerlink" title="总结与思考"></a>总结与思考</h3><p>arm系列使用 parallels-tools 对虚拟机大版本时候，需要卸载parallels-tools。<strong>快照快照快照</strong></p>
+<p>gpt很方便很好用，用的久了有些依赖。遇到报错不想看，直接丢给它了，细思极恐。以后遇到问题还是要多看看报错，保持自己分析问题的能力与探索能力，共勉。</p>
+<h3 id="感谢以下blog"><a href="#感谢以下blog" class="headerlink" title="感谢以下blog"></a>感谢以下blog</h3><p><strong>p神的知识星球和群友值得单独列出来</strong>（加入链接<a target="_blank" rel="noopener" href="https://t.zsxq.com/120S7zhDR%EF%BC%89">https://t.zsxq.com/120S7zhDR）</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://www.freebuf.com/sectool/279794.html</span><br><span class="line">https://zhuanlan.zhihu.com/p/545793991</span><br><span class="line">https://kb.parallels.com/cn/117044</span><br><span class="line">https://http.kali.org/kali/pool/main/l/linux/</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">孤寐</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/">http://example.com/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">乌托邦</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/09/12/x/"><img class="prev-cover" src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2023/09/11/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"><img class="next-cover" src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">安全加固</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/title.pic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">孤寐</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/peterzyk/peterzyk.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/3079269453@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Parallels%E8%99%9A%E6%8B%9F%E6%9C%BAkali%E5%86%85%E6%A0%B8%E5%8D%87%E7%BA%A7bug"><span class="toc-number">1.</span> <span class="toc-text">Parallels虚拟机kali内核升级bug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%85%E5%86%B5"><span class="toc-number">1.1.</span> <span class="toc-text">情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A2%E9%97%AEgpt"><span class="toc-number">1.2.1.</span> <span class="toc-text">询问gpt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%A2%E9%97%AE%E7%BE%A4%E5%8F%8B"><span class="toc-number">1.2.2.</span> <span class="toc-text">询问群友</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84%E5%86%85%E6%A0%B8"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">列出所有已经安装的内核</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">查看内核版本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9F%90%E4%B8%AA%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">删除某个内核版本</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%8F%AF%E6%AD%A3%E5%B8%B8%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">系统可正常使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E6%88%91%E5%88%86%E6%9E%90"><span class="toc-number">1.2.4.</span> <span class="toc-text">自我分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%85%E9%80%9F%E5%AE%9A%E4%BD%8D%E9%A6%96%E6%AC%A1%E9%97%AE%E9%A2%98%E5%87%BA%E5%8F%91%E7%82%B9"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">迅速定位首次问题出发点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDparallels-tools%EF%BC%8C%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">卸载parallels-tools，解决问题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDparallels-tools%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">卸载parallels-tools方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%BB%E5%BA%95%E5%8D%87%E7%BA%A7"><span class="toc-number">1.3.</span> <span class="toc-text">彻底升级</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9grub%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.1.</span> <span class="toc-text">修改grub配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E6%80%9D%E8%80%83"><span class="toc-number">1.4.</span> <span class="toc-text">总结与思考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2%E4%BB%A5%E4%B8%8Bblog"><span class="toc-number">1.5.</span> <span class="toc-text">感谢以下blog</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/30/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%8E%92%E6%9F%A5/" title="计划任务的隐藏与排查"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计划任务的隐藏与排查"/></a><div class="content"><a class="title" href="/2023/11/30/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E4%B8%8E%E6%8E%92%E6%9F%A5/" title="计划任务的隐藏与排查">计划任务的隐藏与排查</a><time datetime="2023-11-30T07:08:45.000Z" title="发表于 2023-11-30 15:08:45">2023-11-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/12/x/" title="无题"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/09/12/x/" title="无题">无题</a><time datetime="2023-09-12T09:29:40.335Z" title="发表于 2023-09-12 17:29:40">2023-09-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/" title="kali升级bug"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="kali升级bug"/></a><div class="content"><a class="title" href="/2023/09/12/kali%E5%8D%87%E7%BA%A7bug/" title="kali升级bug">kali升级bug</a><time datetime="2023-09-12T04:57:57.000Z" title="发表于 2023-09-12 12:57:57">2023-09-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/09/11/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/" title="安全加固"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="安全加固"/></a><div class="content"><a class="title" href="/2023/09/11/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/" title="安全加固">安全加固</a><time datetime="2023-09-11T06:44:16.000Z" title="发表于 2023-09-11 14:44:16">2023-09-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/08/28/%E6%9F%A5%E6%89%BEpid/" title="查找pid"><img src="https://bucket-1256801691.cos.ap-shanghai.myqcloud.com/bg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="查找pid"/></a><div class="content"><a class="title" href="/2023/08/28/%E6%9F%A5%E6%89%BEpid/" title="查找pid">查找pid</a><time datetime="2023-08-28T13:09:32.000Z" title="发表于 2023-08-28 21:09:32">2023-08-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2024 By 孤寐</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
